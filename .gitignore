@@ -1,0 +1,6 @@
+#In case of production
+
+# logs.txt
+# logscsv.csv
+
+node_modules
