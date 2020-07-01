@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 //? VARS
-const INPUT_PATH = "./logs.txt";
+const INPUT_PATH = "./access_log.txt";
 const OUTPUT_PATH = "./logscsv.csv";
 
 const mainFunc = () => {
