@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("logscsv.csv")
+df = pd.read_csv("/home/anant/logger/logscsv.csv")
 
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 X = df.iloc[:,:]
