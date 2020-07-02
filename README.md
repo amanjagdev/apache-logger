@@ -32,8 +32,7 @@ Note: Everything is done on RHEL 8 which is installed on Virtualbox
 
 This is what my Jenkins looks like with all the tasks.
 
-![](./myMediaFolder/media/image1.png){width="6.5in" height="3.325in"}
-
+![](./myMediaFolder/media/image1.png)
 I have divided the task into multiple Jenkins jobs for Ease
 
 Job1 -- Copy logs
@@ -42,8 +41,7 @@ This job will copy the logs of httpd from /var/log/httpd/access\_log to
 different destination on system because we cannot disturb the original
 log file.
 
-![](./myMediaFolder/media/image2.png){width="5.466666666666667in"
-height="2.933333333333333in"}
+![](./myMediaFolder/media/image2.png)
 
 Job 2 -- send data from git
 
@@ -56,11 +54,9 @@ Below is the github repo for the project.
 
 <https://github.com/amanjagdev/apache-logger>
 
-![](./myMediaFolder/media/image3.png){width="5.433333333333334in"
-height="3.2in"}
+![](./myMediaFolder/media/image3.png)
 
-![](./myMediaFolder/media/image4.png){width="5.283333333333333in"
-height="2.8916666666666666in"}
+![](./myMediaFolder/media/image4.png)
 
 Job-3 create csv
 
@@ -69,8 +65,7 @@ REGEX.
 
 You will find the code snippet in the github repo.
 
-![](./myMediaFolder/media/image5.png){width="5.158333333333333in"
-height="2.8833333333333333in"}
+![](./myMediaFolder/media/image5.png)
 
 Job-4 CSV label
 
@@ -78,8 +73,7 @@ Actually I forgot to label the columns in CSV file so I made this
 program Special thanks to RITIK AGARWAL for helping me out with this at
 the last hour.
 
-![](./myMediaFolder/media/image6.png){width="5.444063867016623in"
-height="3.0368055555555555in"}
+![](./myMediaFolder/media/image6.png)
 
 Job-5 Find the attacker
 
@@ -88,15 +82,12 @@ This is where we are doing the machine learning magic
 I would suggest to install python2 and pandas as well as sklearn to
 perform this step and use pip2 for installation.
 
-![](./myMediaFolder/media/image7.png){width="5.277011154855643in"
-height="2.925462598425197in"}
-
+![](./myMediaFolder/media/image7.png)
 Job-6 Reading attacker ip
 
 Here we will read the attacker Ip address and send the data to my Email.
 
-![](./myMediaFolder/media/image8.png){width="5.276388888888889in"
-height="3.2037029746281713in"}
+![](./myMediaFolder/media/image8.png)
 
 Note: Mail will be triggered in Post build Action.
 
@@ -104,8 +95,7 @@ Job-7 Saving-the-world
 
 Here the system will block the malicious IP address
 
-![](./myMediaFolder/media/image9.png){width="5.2868055555555555in"
-height="3.0277777777777777in"}
+![](./myMediaFolder/media/image9.png)
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--\> To Block An IP Address
 \<\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
