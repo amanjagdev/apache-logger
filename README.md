@@ -1,41 +1,48 @@
-Detecting the Attacker from Logs using Machine Learning
+Apache-logger
+===============================
+
+## General
+
+The purpose of this tool is *Detecting the Attacker from Logs using Machine Learning*
 
 This is something I have seen in many big websites specially with DDOS
-protection. Here is the scenario, what if you try to launch a DDOS
+protection. 
+Here is the scenario, what if you try to launch a DDOS
 attack on a website after some time you will see that the site is not
 reachable from your connection anymore. This is because of DDOS
 protection on that website. So, I thought why not try to make this
 thing.
 
-Technologies Used:\
-Jenkins, Machine Learning, RHEL 8,NodeJs,Python, lots of google search.
+## Technologies Used
+- Jenkins
+- Machine Learning
+- RHEL 8
+- NodeJs
+- Python
 
-\*Here I am breaking the task using a simple scenario\*
+## Scenario description
+The tasks in a sample scenario will take place in the following order:
 
-1\. This system will keep log of the information about the clients hit or
-request to the server.
+1\. The Apache-logger will keep a log of the information about the clients hits or requests to the server.
 
-2\. This log data of clients will be used for finding the unusual pattern
-of a client request for example if a client is sending request
-repeatedly. for this purpose, we can use here clustering to make
-clusters of different patterns of client request and to identify which
-cluster of client requests can cause some security and performance issue
-in the server.
+2\. The generated log with the client's data will be used to identify unusual patterns. For example, a client sending a request repeatedly. For this purpose, we can use here clustering to make clusters of different patterns of client request and to identify which cluster of client requests can cause some security and performance issues in the server.
 
-3\. If any kind of unusual pattern we got then we can use Jenkins to
-perform certain task for example it can run some command to block that
-Ip which is causing this trouble.
+3\. If any unusual pattern is identified, Jenkins can be used to
+perform certain tasks. For example, run some command to block that
+IP commiting the action.
 
-Get ready to start the ride then
+Get ready to start the ride then!
 
-Note: Everything is done on RHEL 8 which is installed on Virtualbox
+## Demo
+
+**Note: Everything is done on RHEL 8 which is installed on Virtualbox**
 
 This is what my Jenkins looks like with all the tasks.
 
 ![](./myMediaFolder/media/image1.png)
 I have divided the task into multiple Jenkins jobs for Ease
 
-Job1 -- Copy logs
+### Job1 -- Copy logs
 
 This job will copy the logs of httpd from /var/log/httpd/access\_log to
 different destination on system because we cannot disturb the original
@@ -43,22 +50,19 @@ log file.
 
 ![](./myMediaFolder/media/image2.png)
 
-Job 2 -- send data from git
+### Job 2 -- send data from git
 
 This job will pull the github repository and send it to the destination
 folder here the folder is at /home/anant/logger
 
-Special mention to AMAN JAGDEV for helping me out with nodejs code
-
-Below is the github repo for the project.
-
-<https://github.com/amanjagdev/apache-logger>
+Special mention to AMAN JAGDEV for helping me out with nodejs code. 
+[Here you can find his github repo](https://github.com/amanjagdev/apache-logger)
 
 ![](./myMediaFolder/media/image3.png)
 
 ![](./myMediaFolder/media/image4.png)
 
-Job-3 create csv
+### Job-3 create csv
 
 This job is using Nodejs and sorting the log file into csv file using
 REGEX.
@@ -67,7 +71,7 @@ You will find the code snippet in the github repo.
 
 ![](./myMediaFolder/media/image5.png)
 
-Job-4 CSV label
+### Job-4 CSV label
 
 Actually I forgot to label the columns in CSV file so I made this
 program Special thanks to RITIK AGARWAL for helping me out with this at
@@ -75,7 +79,7 @@ the last hour.
 
 ![](./myMediaFolder/media/image6.png)
 
-Job-5 Find the attacker
+### Job-5 Find the attacker
 
 This is where we are doing the machine learning magic
 
@@ -83,7 +87,8 @@ I would suggest to install python2 and pandas as well as sklearn to
 perform this step and use pip2 for installation.
 
 ![](./myMediaFolder/media/image7.png)
-Job-6 Reading attacker ip
+
+### Job-6 Reading attacker ip
 
 Here we will read the attacker Ip address and send the data to my Email.
 
@@ -91,11 +96,13 @@ Here we will read the attacker Ip address and send the data to my Email.
 
 Note: Mail will be triggered in Post build Action.
 
-Job-7 Saving-the-world
+### Job-7 Saving-the-world
 
 Here the system will block the malicious IP address
 
 ![](./myMediaFolder/media/image9.png)
+
+## Useful commands
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--\> To Block An IP Address
 \<\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
@@ -107,9 +114,10 @@ Address \<\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 
 \#sudo iptables -D INPUT -s \<IP Address\> -j DROP
 
-To test the environment you can use HULK DDos Tool for attacking
 
-<https://allabouttesting.org/hulk-ddos-tool-complete-installation-usage-with-examples/#:~:text=HULK%20is%20a%20Denial%20of,network%20devices%20like%20a%20firewall.>
+## Testing the enviroment 
+To test the environment you can use [HULK DDos Tool for attacking]
+(https://allabouttesting.org/hulk-ddos-tool-complete-installation-usage-with-examples/#:~:text=HULK%20is%20a%20Denial%20of,network%20devices%20like%20a%20firewall.)
 
 HULK is **a Denial of Service** (DoS**)** tool **used** to attack **web
 servers** by generating **volumes of** unique and **obfuscated
